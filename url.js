@@ -1,4 +1,6 @@
+var fs = require("fs");
 
+var text = fs.readFileSync("./urls.txt").toString('utf-8');
 var urls = [
 "https://twitter.com/search?f=tweets&q=LeoBlakeCarter%20307Cush",
 "https://twitter.com/search?f=tweets&q=LeoBlakeCarter%20AAMitchell",
@@ -6552,40 +6554,10 @@ var urls = [
 "https://twitter.com/search?f=tweets&q=BeerWLthAView%20missmerrrr",
 ]
 
-// textByLine.forEach(function(url){
-//   page.open(url, function() {
-//     page.render('tweet.png');
-//     phantom.exit();
-//   });
-// })
 
-function process() {
-    if (urls.length == 0) {
-        phantom.exit();
-    } else {
-        //remove the first item of an array
-        url = urls.shift();
-        //open a page
-        page = require('webpage').create();
-
-        //store the requested url in a separate variable
-        var currentUrl = url
-
-
-        page.open(url, onFinishedLoading)
-
-        page.onNavigationRequested = function(url, type, willNavigate, main) {
-            console.log('\n' + currentUrl + '\nredirecting to \n' + url);
-        }
-
-    }
+console.log("[")
+var i;
+for(i = 0; i < urls.length -1; i++ ){
+  console.log(`\"${urls[i]}\",`);
 }
-
-function onFinishedLoading(status) {
-
-    console.log(status);
-    page.release();
-    process();
-}
-
-process();
+console.log(urls[i] + "]");
