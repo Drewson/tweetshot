@@ -1,4 +1,3 @@
-
 var urls = [
 "https://twitter.com/search?f=tweets&q=LeoBlakeCarter%20307Cush",
 "https://twitter.com/search?f=tweets&q=LeoBlakeCarter%20AAMitchell",
@@ -6552,12 +6551,7 @@ var urls = [
 "https://twitter.com/search?f=tweets&q=BeerWLthAView%20missmerrrr",
 ]
 
-// textByLine.forEach(function(url){
-//   page.open(url, function() {
-//     page.render('tweet.png');
-//     phantom.exit();
-//   });
-// })
+var increment = 0;
 
 function process() {
     if (urls.length == 0) {
@@ -6571,11 +6565,13 @@ function process() {
         //store the requested url in a separate variable
         var currentUrl = url
 
-
         page.open(url, onFinishedLoading)
 
         page.onNavigationRequested = function(url, type, willNavigate, main) {
             console.log('\n' + currentUrl + '\nredirecting to \n' + url);
+            increment++
+            //THIS LINE SAVES THE PICTURE IN THE PROJECT DIRECTORY, DONT UNCOMMENT UNLESS YOURE READY FOR THEM..
+            // page.render('tweet' + increment + '.png');
         }
 
     }
