@@ -16,7 +16,8 @@
     "googleapis": "^19.0.0",
     "lodash": "^4.17.4",
     "request": "^2.81.0",
-    "screenshotlayer": "^1.0.0"
+    "screenshotlayer": "^1.0.0",
+    "serverless-google-cloudfunctions": "^1.1.0"
   },
   "devDependencies": {
     "phantomjs": "^2.1.7",
